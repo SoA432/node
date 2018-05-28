@@ -1,12 +1,15 @@
 var db = require('db');
-db.connect();
+var log = require('logger')(module);
+ 
 function User(name) {
     this.name = name;
 }
 
 User.prototype.hello = function (who) {
-    console.log(db.getPhrase("Hello") + ', ' + who.name);
+    log(db.getPhrase("Hello") + ', ' + who.name);
 };
 
 //module.exports.User / exports.User / this.User
 module.exports = User;
+
+// console.log(module);
